@@ -7,9 +7,23 @@ const Table = ({ csv }) => {
   return (
     <table>
       <thead>
-        <tr></tr>
+        <tr>
+          {csv.header.map((item_name, index) => (
+            <th key={index}>{item_name}</th>
+          ))}
+        </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        {csv.data.map((row, index) => (
+          <tr key={index}>
+            {row.map((column) => (
+              <td key={column}>{column}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 };
+
+export default Table;
